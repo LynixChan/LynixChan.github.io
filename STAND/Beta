@@ -28,7 +28,7 @@ Fpscap = getgenv().LynixSettings.FPSCAP
 lowgraphics = getgenv().LynixSettings.LowGraphics
 Alt = getgenv().LynixSettings.Alt
 
-local NotifyLibrary = loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/NotificationLibrary"))()
+local NotifyLibrary = loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/NotificationLibrary"))()
 getgenv().ScriptName = 'Lynix Stand Beta Ofc'
 local ScriptName = getgenv().ScriptName
 local Notify = NotifyLibrary.Notify
@@ -48,9 +48,9 @@ Notify({Title = "The execution might be slow",Duration = 30})
 STAND = game:GetService('Players'):FindFirstChild(game:GetService('Players').LocalPlayer.Name)
 OWNER = game:GetService("Players"):FindFirstChild(StandOwner)
 rs = game:GetService("RunService")
-loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/CreateScript"))()
+loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/CreateScript"))()
 Notify({Title = "Function Loaded",Duration = 30})
-loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/DaHoodBypass"))()
+loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/DaHoodBypass"))()
 Notify({Title = "Block remote loaded",Duration = 30})
 ANIMATION()
 Notify({Title = "Animation loaded",Duration = 30})
@@ -2814,7 +2814,7 @@ OWNER.CharacterAdded:connect(function() STAND.Character:WaitForChild("FULLY_LOAD
 if Hidescreen == true then rs:Set3dRenderingEnabled(false) else rs:Set3dRenderingEnabled(true) end
 Notify({Title = ScriptName.." Loaded",Description ="Made By Ticxyylolz#9164",Duration = 3.4028235e+38})
 Notify({Title = "Gunkill should be fixed now",Duration = 60})
-loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/xxx"))()
+loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/xxx"))()
 local mt = getrawmetatable(game)
 local old = mt.__namecall
 setreadonly(mt,false)
