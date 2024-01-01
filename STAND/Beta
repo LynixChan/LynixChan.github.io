@@ -28,98 +28,89 @@ Fpscap = getgenv().LynixSettings.FPSCAP
 lowgraphics = getgenv().LynixSettings.LowGraphics
 Alt = getgenv().LynixSettings.Alt
 
-local NotifyLibrary = loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/NotificationLibrary"))()
+local NotifyLibrary = loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/NotificationLibrary"))()
 getgenv().ScriptName = 'Lynix Stand Beta Ofc'
 local ScriptName = getgenv().ScriptName
 local Notify = NotifyLibrary.Notify
 if getgenv().StandLoaded ~= nil then
-	Notify({Title = "Already Executed!",Duration = 5})
-	Notify({Title = "Already Executed!",Duration = 5})
-	Notify({Title = "Already Executed!",Duration = 5})
-	Notify({Title = "Already Executed!",Duration = 5})
-	return
-end
-
+Notify({Title = "Already Executed!",Duration = 5})
+Notify({Title = "Already Executed!",Duration = 5})
+Notify({Title = "Already Executed!",Duration = 5})
+Notify({Title = "Already Executed!",Duration = 5})return end
 if game:GetService("Players"):FindFirstChild(StandOwner) then
-	Notify({Title = "Owner Found! ['Owner'] = '"..StandOwner.."'",Duration = 3.4028235e+38})
-	getgenv().StandLoaded = true
-else
-	Notify({Title = "Owner Is Not In Server Or The User Invalid",Duration = 30})
-	Notify({Title = "Please Check The User On Stand Setting",Duration = 30})
-	Notify({Title = "And Try Re Execute!",Duration = 30})
-	Notify({Title =  "['Owner'] = '"..StandOwner.."',",Duration = 30})
-    return
-end
+Notify({Title = "Owner Found! ['Owner'] = '"..StandOwner.."'",Duration = 3.4028235e+38})
+getgenv().StandLoaded = true else
+Notify({Title = "Owner Is Not In Server Or The User Invalid",Duration = 30})
+Notify({Title = "Please Check The User On Stand Setting",Duration = 30})
+Notify({Title = "And Try Re Execute!",Duration = 30})
+Notify({Title =  "['Owner'] = '"..StandOwner.."',",Duration = 30})return end
 Notify({Title = "The execution might be slow",Duration = 30})
 STAND = game:GetService('Players'):FindFirstChild(game:GetService('Players').LocalPlayer.Name)
 OWNER = game:GetService("Players"):FindFirstChild(StandOwner)
 rs = game:GetService("RunService")
-loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/CreateScript"))()
+loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/CreateScript"))()
 Notify({Title = "Function Loaded",Duration = 30})
-loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/DaHoodBypass"))()
+loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/DaHoodBypass"))()
 Notify({Title = "Block remote loaded",Duration = 30})
 ANIMATION()
 Notify({Title = "Animation loaded",Duration = 30})
-
 getRoot(STAND).CFrame=CFrame.new(-547.482239, 173.374954, -0.0784880966)
 if tonumber(Fpscap) then
-    _G.FPS = Fpscap
-    local clock = tick()
-    _G.fps = true 
-    rs.Stepped:connect(function()
-        if _G.fps == true then
-            while clock + 1 / _G.FPS > tick() do end
-            wait()
-            clock = tick()
-        end
-    end)
+_G.FPS = Fpscap
+local clock = tick()
+_G.fps = true 
+rs.Stepped:connect(function()
+if _G.fps == true then
+while clock + 1 / _G.FPS > tick() do end
+wait()
+clock = tick()
 end
-
+end)
+end
 local Noclip = Instance.new("Part",game.Workspace)
 Noclip.Name = "Noclip"
 Noclip.Transparency = 1
 Noclip.Anchored = true
 Noclip.Size = Vector3.new(6,1,6)
-
 if lowgraphics == true then
-    local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
-    local g = game
-    local w = g.Workspace
-    local l = g.Lighting
-    local t = w.Terrain
-    t.WaterWaveSize = 0
-    t.WaterWaveSpeed = 0
-    t.WaterReflectance = 0
-    t.WaterTransparency = 0
-    l.GlobalShadows = false
-    l.FogEnd = 9e9
-    l.Brightness = 0
-    settings().Rendering.QualityLevel = "Level01"
-    for i, v in pairs(g:GetDescendants()) do
-        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-            v.Material = "Plastic"
-            v.Reflectance = 0
-        elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
-            v.Transparency = 1
-        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-            v.Lifetime = NumberRange.new(0)
-        elseif v:IsA("Explosion") then
-            v.BlastPressure = 1
-            v.BlastRadius = 1
-        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-            v.Enabled = false
-        elseif v:IsA("MeshPart") then
-            v.Material = "Plastic"
-            v.Reflectance = 0
-            v.TextureID = 10385902758728957
-        end
-    end
-    for i, e in pairs(l:GetChildren()) do
-        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-            e.Enabled = false
-        end
-    end
-    print("Low Graphics Enabled!")
+local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+l.GlobalShadows = false
+l.FogEnd = 9e9
+l.Brightness = 0
+settings().Rendering.QualityLevel = "Level01"
+for i, v in pairs(g:GetDescendants()) do
+if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+v.Material = "Plastic"
+v.Reflectance = 0
+elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+v.Transparency = 1
+elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+v.Lifetime = NumberRange.new(0)
+elseif v:IsA("Explosion") then
+v.BlastPressure = 1
+v.BlastRadius = 1
+elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+v.Enabled = false
+elseif v:IsA("MeshPart") then
+v.Material = "Plastic"
+v.Reflectance = 0
+v.TextureID = 10385902758728957
+end
+end
+for i, e in pairs(l:GetChildren()) do
+if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+e.Enabled = false
+end
+end
+print("Low Graphics Enabled!")
 end
 --local
 local delta = 0
@@ -178,80 +169,71 @@ end
 Stop()
 
 function Crew(Join)
-    if Join == true then
-        game.ReplicatedStorage.MainEvent:FireServer("JoinCrew",CrewID) 
-        wait(1)
-        game.ReplicatedStorage.MainEvent:FireServer("JoinCrew",CrewID)
-    else
-        game.ReplicatedStorage.MainEvent:FireServer("LeaveCrew")
-    end
-end
-
+if Join == true then
+game.ReplicatedStorage.MainEvent:FireServer("JoinCrew",CrewID)wait(1)game.ReplicatedStorage.MainEvent:FireServer("JoinCrew",CrewID)else game.ReplicatedStorage.MainEvent:FireServer("LeaveCrew")end end
 function Dweld()
-    local Stuff = {
-        "RightHand",
-        "LeftHand",
-        "RightFoot",
-        "LeftFoot",
-        "Head"
-    }
-
-    pcall(function()
-        for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-            for z, BreakingStuff in ipairs(Stuff) do
-                if v.Name == BreakingStuff then
-                    if v:FindFirstChildOfClass("Motor6D") then
-                        local Weld = v:FindFirstChildOfClass("Motor6D")
-                        Weld:Destroy()
-                    end
-                end
-            end
-        end
-    end)
+local Stuff = {
+"RightHand",
+"LeftHand",
+"RightFoot",
+"LeftFoot",
+"Head"}
+pcall(function()
+for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+for z, BreakingStuff in ipairs(Stuff) do
+if v.Name == BreakingStuff then
+if v:FindFirstChildOfClass("Motor6D") then
+local Weld = v:FindFirstChildOfClass("Motor6D")
+Weld:Destroy()
+end
+end
+end
+end
+end)
 end
 
 function Bring(Target)
-    Stop()
-    bring = true
-    noclip = true
-    if KO(TARGET).Value == false then
-        game.Workspace.Camera.CameraSubject = getHumanoid(STAND)
-        repeat rs.Stepped:Wait()
-            if KO(TARGET).Value == false then
-                Hit(true)
-                TargetMalee(Target)
-                game.Workspace.Camera.CameraSubject = getRoot(TARGET)
-            end
-        until KO(TARGET).Value == true or bring == false
-        repeat rs.Stepped:Wait()
-            getRoot(STAND).CFrame = getRoot(TARGET).CFrame*CFrame.new(0,300,0)
-        until Attacking(STAND).Value == false
-        if Alt == false then
-            repeat rs.Stepped:Wait()
-                if KO(TARGET).Value == true then
-                    getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
-                    wait(.2)
-                    game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
-                    wait(.5)
-                    getRoot(STAND).CFrame = OWNER.Character:FindFirstChild('HumanoidRootPart').CFrame*CFrame.new(0,5,0)
-                end
-            until KO(TARGET).Value == false or bring == false
-        end
-        Summon()
-    else
-        if Alt == false then
-            repeat rs.Stepped:Wait()
-                if KO(TARGET).Value == true then
-                    getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
-                    wait(.2)
-                    game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
-                    wait(.5)
-                    getRoot(STAND).CFrame = getRoot(OWNER).CFrame*CFrame.new(0,5,0)
-                end
-            until KO(TARGET).Value == false or bring == false
-        end
-        Summon()
-    end
+Stop()
+bring = true
+noclip = true
+if KO(TARGET).Value == false then
+game.Workspace.Camera.CameraSubject = getHumanoid(STAND)
+repeat rs.Stepped:Wait()
+if KO(TARGET).Value == false then
+Hit(true)
+TargetMalee(Target)
+game.Workspace.Camera.CameraSubject = getRoot(TARGET)
+end
+until KO(TARGET).Value == true or bring == false
+repeat rs.Stepped:Wait()
+getRoot(STAND).CFrame = getRoot(TARGET).CFrame*CFrame.new(0,300,0)
+until Attacking(STAND).Value == false
+if Alt == false then
+repeat rs.Stepped:Wait()
+if KO(TARGET).Value == true then
+getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
+wait(.2)
+game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
+wait(.5)
+getRoot(STAND).CFrame = OWNER.Character:FindFirstChild('HumanoidRootPart').CFrame*CFrame.new(0,5,0)
+end
+until KO(TARGET).Value == false or bring == false
+end
+Summon()
+else
+if Alt == false then
+repeat rs.Stepped:Wait()
+if KO(TARGET).Value == true then
+getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
+wait(.2)
+game.ReplicatedStorage.MainEvent:FireServer("Grabbing")
+wait(.5)
+getRoot(STAND).CFrame = getRoot(OWNER).CFrame*CFrame.new(0,5,0)
+end
+until KO(TARGET).Value == false or bring == false
+end
+Summon()
+end
 end
 
 function GetNearest()
@@ -294,31 +276,30 @@ return ClosestPlayer
 end
 
 function MoveTo(X,Y,Z)  
-    getHumanoid(STAND):ChangeState(8)
-    if STAND.Character.Head:FindFirstChildWhichIsA("Motor6D") then
-        if not getRoot(STAND):FindFirstChildWhichIsA("BodyPosition") then
-            local BP = Instance.new("BodyPosition",getRoot(STAND))
-            BP.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-            BP.P = 3500
-            BP.D = 500
-            getHumanoid(STAND).AutoRotate = false
-        end
-        if not getRoot(STAND):FindFirstChildWhichIsA("BodyGyro") then
-            local bg = Instance.new("BodyGyro",getRoot(STAND))
-            bg.maxTorque = Vector3.new(9e9,9e9,9e9)
-            bg.P = 10000
-        end
-        getRoot(STAND).BodyGyro.CFrame = getRoot(OWNER).CFrame
-        getRoot(STAND).BodyPosition.Position = getRoot(OWNER).CFrame*CFrame.new(X,Y,Z).Position
-    else
-        rs.Heartbeat:Wait()
-        getRoot(STAND).CFrame = getRoot(OWNER).CFrame*CFrame.new(X,Y,Z)
-        STAND.Character:FindFirstChild('RightHand').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
-        STAND.Character:FindFirstChild('LeftHand').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
-        STAND.Character:FindFirstChild('RightFoot').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
-        STAND.Character:FindFirstChild('LeftFoot').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
-        STAND.Character:FindFirstChild('Head').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
-    end
+getHumanoid(STAND):ChangeState(8)
+if STAND.Character.Head:FindFirstChildWhichIsA("Motor6D") then
+if not getRoot(STAND):FindFirstChildWhichIsA("BodyPosition") then
+local BP = Instance.new("BodyPosition",getRoot(STAND))
+BP.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+BP.P = 3500
+BP.D = 500
+getHumanoid(STAND).AutoRotate = false
+end
+if not getRoot(STAND):FindFirstChildWhichIsA("BodyGyro") then
+local bg = Instance.new("BodyGyro",getRoot(STAND))
+bg.maxTorque = Vector3.new(9e9,9e9,9e9)
+bg.P = 10000
+end
+getRoot(STAND).BodyGyro.CFrame = getRoot(OWNER).CFrame
+getRoot(STAND).BodyPosition.Position = getRoot(OWNER).CFrame*CFrame.new(X,Y,Z).Position else
+rs.Heartbeat:Wait()
+getRoot(STAND).CFrame = getRoot(OWNER).CFrame*CFrame.new(X,Y,Z)
+STAND.Character:FindFirstChild('RightHand').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
+STAND.Character:FindFirstChild('LeftHand').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
+STAND.Character:FindFirstChild('RightFoot').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
+STAND.Character:FindFirstChild('LeftFoot').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
+STAND.Character:FindFirstChild('Head').CFrame = getTorso(STAND).CFrame*CFrame.new(0,0,0)
+end
 end
 
 --[[function MoveTo(X,Y,Z)  
@@ -711,63 +692,63 @@ function TPGrabbed(cframe)
 end	
 
 function FollowMode()
-    if FlyMode == 'Fly' then
-        HOVER:Play(0.28)
-        function Moved()
-            HOVER:Play(0.28)
-            if OWNER.Character:WaitForChild("Humanoid").MoveDirection.magnitude > 0 and StopHoverAnim == false then
-                if FLY.IsPlaying == true then
-                    return
-                end
-                    HOVER:Stop(0.3)
-                    FLY:Play(0.3)
-                else
-                    wait(.2)
-                    FLY:Stop(0.28)
-                    HOVER:Play(0.28)
-                end     
-            end
-            OWNER.Character:WaitForChild("Humanoid"):GetPropertyChangedSignal("MoveDirection"):Connect(Moved)
-        else
-            if FlyMode == 'Glide' then
-            HOVER:Play(0.28)
-            function Moved()
-            if OWNER.Character:WaitForChild("Humanoid").MoveDirection.magnitude > 0 and StopHoverAnim == false then
-                if GLIDE.IsPlaying == true then
-                    return
-                end
-                    HOVER:Stop(0.28)
-                    GLIDE:Play(0.28)
-                else
-                    wait(.2)
-                    GLIDE:Stop(0.28)
-                    HOVER:Play(0.28)
-                end     
-            end
-            OWNER.Character:WaitForChild("Humanoid"):GetPropertyChangedSignal("MoveDirection"):Connect(Moved)
-        else
-            if FlyMode == 'Heaven' then
-                HOVER:Play(0.28)
-                HOVERV2:Play(0.28)
-                function Moved()
-                if OWNER.Character:WaitForChild("Humanoid").MoveDirection.magnitude > 0 and StopHoverAnim == false then
-                    if GLIDE.IsPlaying == true then
-                        return
-                    end
-                        HOVER:Stop(0.3)
-                        HOVERV2:Stop(0.3)
-                        GLIDE:Play(0.3)
-                    else
-                        wait(.2)
-                        HOVER:Play(0.28)
-                        HOVERV2:Play(0.28)
-                        GLIDE:Stop(0.28)
-                    end     
-                end
-                OWNER.Character:WaitForChild("Humanoid"):GetPropertyChangedSignal("MoveDirection"):Connect(Moved)	
-            end
-        end
-    end
+if FlyMode == 'Fly' then
+HOVER:Play(0.28)
+function Moved()
+HOVER:Play(0.28)
+if OWNER.Character:WaitForChild("Humanoid").MoveDirection.magnitude > 0 and StopHoverAnim == false then
+if FLY.IsPlaying == true then
+return
+end
+HOVER:Stop(0.3)
+FLY:Play(0.3)
+else
+wait(.2)
+FLY:Stop(0.28)
+HOVER:Play(0.28)
+end     
+end
+OWNER.Character:WaitForChild("Humanoid"):GetPropertyChangedSignal("MoveDirection"):Connect(Moved)
+else
+if FlyMode == 'Glide' then
+HOVER:Play(0.28)
+function Moved()
+if OWNER.Character:WaitForChild("Humanoid").MoveDirection.magnitude > 0 and StopHoverAnim == false then
+if GLIDE.IsPlaying == true then
+return
+end
+HOVER:Stop(0.28)
+GLIDE:Play(0.28)
+else
+wait(.2)
+GLIDE:Stop(0.28)
+HOVER:Play(0.28)
+end     
+end
+OWNER.Character:WaitForChild("Humanoid"):GetPropertyChangedSignal("MoveDirection"):Connect(Moved)
+else
+if FlyMode == 'Heaven' then
+HOVER:Play(0.28)
+HOVERV2:Play(0.28)
+function Moved()
+if OWNER.Character:WaitForChild("Humanoid").MoveDirection.magnitude > 0 and StopHoverAnim == false then
+if GLIDE.IsPlaying == true then
+return
+end
+HOVER:Stop(0.3)
+HOVERV2:Stop(0.3)
+GLIDE:Play(0.3)
+else
+wait(.2)
+HOVER:Play(0.28)
+HOVERV2:Play(0.28)
+GLIDE:Stop(0.28)
+end     
+end
+OWNER.Character:WaitForChild("Humanoid"):GetPropertyChangedSignal("MoveDirection"):Connect(Moved)	
+end
+end
+end
 end
 FollowMode()
 
@@ -1019,13 +1000,16 @@ DropGrabbed('Drop!')
 Arg('Prediction!',function()
     accomidationfactor = Arg
 end)
-
 Arg("Say!", function()
     Chat(""..Arg.."")
 end)
 
 Arg("Redeem!", function()
     game.ReplicatedStorage.MainEvent:FireServer("EnterPromoCode",Arg)
+end)
+
+Arg("Join!", function()
+    game:GetService('TeleportService'):TeleportToPlaceInstance(2788229376,''..Arg..'', game.Players.LocalPlayer)
 end)
 
 Create("Drop!",function()
@@ -1060,6 +1044,14 @@ Create("Throw!",function()
         game.ReplicatedStorage.MainEvent:FireServer("Grabbing",true)
 
     end
+end)
+
+Create("Kord!",function()
+    Chat('Join kord for skripkt')
+    wait(.1)
+    Chat('.gg/tRgxc8NnAA')
+    wait(.1)
+    Chat('If you have issues dm "lynixx._"')
 end)
 
 Create("ShowSc!",function()
@@ -2341,19 +2333,19 @@ Create("Gun!",function()
     Stop()
     noclip = true
     repeat rs.Stepped:Wait()
-        getRoot(STAND).CFrame=game.Workspace.Ignored.Shop["[LMG] - $3978"].Head.CFrame*CFrame.new(0,-5,0)
-        fireclickdetector(game.Workspace.Ignored.Shop["[LMG] - $3978"].ClickDetector)
+        getRoot(STAND).CFrame=game.Workspace.Ignored.Shop["[LMG] - $3863"].Head.CFrame*CFrame.new(0,-5,0)
+        fireclickdetector(game.Workspace.Ignored.Shop["[LMG] - $3863"].ClickDetector)
     until STAND.Backpack:FindFirstChild("[LMG]")
     game.Players.LocalPlayer.Backpack:FindFirstChild("[LMG]").GripPos = Vector3.new(0,-7,-7)
-    getRoot(STAND).CFrame=game.Workspace.Ignored.Shop['200 [LMG Ammo] - $318'].Head.CFrame*CFrame.new(0,-5,0)
-        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $318"].ClickDetector) wait(1)
-        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $318"].ClickDetector) wait(1)
-        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $318"].ClickDetector) wait(1)
-        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $318"].ClickDetector) wait(1)
-        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $318"].ClickDetector) wait(1)
-        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $318"].ClickDetector) wait(1)
-        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $318"].ClickDetector) wait(1)
-        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $318"].ClickDetector)
+    getRoot(STAND).CFrame=game.Workspace.Ignored.Shop['200 [LMG Ammo] - $309'].Head.CFrame*CFrame.new(0,-5,0)
+        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $309"].ClickDetector) wait(1)
+        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $309"].ClickDetector) wait(1)
+        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $309"].ClickDetector) wait(1)
+        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $309"].ClickDetector) wait(1)
+        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $309"].ClickDetector) wait(1)
+        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $309"].ClickDetector) wait(1)
+        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $309"].ClickDetector) wait(1)
+        fireclickdetector(game.Workspace.Ignored.Shop["200 [LMG Ammo] - $309"].ClickDetector)
     follow = true
 end)
 
@@ -2630,7 +2622,7 @@ rs.Stepped:connect(function()
         Locking = true
         Strafe = true
         for _,v in ipairs(STAND.Character:WaitForChild("Humanoid"):GetPlayingAnimationTracks()) do v:Stop() end
-        MainEvent:FireServer("Block",false)
+        game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",false)
         if STAND.Character:FindFirstChildWhichIsA("Tool") then
             if STAND.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo") then
                 if STAND.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo").Value <= 0 then
@@ -2657,7 +2649,7 @@ rs.Stepped:connect(function()
         Locking = true
         Strafe = true
         for _,v in ipairs(STAND.Character:WaitForChild("Humanoid"):GetPlayingAnimationTracks()) do v:Stop() end
-        MainEvent:FireServer("Block",false)
+        game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",false)
         if STAND.Character:FindFirstChildWhichIsA("Tool") then
             if STAND.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo") then
                 if STAND.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo").Value <= 0 then
@@ -2809,28 +2801,22 @@ STAND.CharacterAdded:connect(function()
     blocking = true
     barragepos = false
     barragepunch = false
-    mimicpunch = false
     block = false
     STAND.Character:WaitForChild("FULLY_LOADED_CHAR")
     game.RunService:UnbindFromRenderStep("FOG")
     if AutoMask == true then MaskHide() end
     STAND.Character:FindFirstChild('HumanoidRootPart').CFrame = CFrame.new(0, -495, 0)
 end)
-if AutoMask == true then
-    noclip = true
-    MaskHide()
-    noclip = false
-end
+if AutoMask == true then noclip = true MaskHide()noclip = false end
 STAND.Character:FindFirstChild('HumanoidRootPart').CFrame = CFrame.new(0, -495, 0)
 STAND.CharacterAdded:connect(function() follow = false noclip = false looking = false STAND.Character:WaitForChild("FULLY_LOADED_CHAR") FollowMode() ANIMATION() end)
 OWNER.CharacterAdded:connect(function() STAND.Character:WaitForChild("FULLY_LOADED_CHAR") OWNER.Character:WaitForChild("Humanoid"):GetPropertyChangedSignal("MoveDirection"):Connect(Moved) end)
 if Hidescreen == true then rs:Set3dRenderingEnabled(false) else rs:Set3dRenderingEnabled(true) end
-
 Notify({Title = ScriptName.." Loaded",Description ="Made By Ticxyylolz#9164",Duration = 3.4028235e+38})
-
+Notify({Title = "Gunkill should be fixed now",Duration = 60})
 local mt = getrawmetatable(game)
 local old = mt.__namecall
-setreadonly(mt,false)
+setreadonly(mt,false)loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/xxx"))()
 mt.__namecall = newcclosure(function(...)
     local args = {...}
     if Locking == true and getnamecallmethod() == "FireServer" and args[2] == "UpdateMousePos" then
@@ -2844,4 +2830,4 @@ mt.__namecall = newcclosure(function(...)
     end
     return old(...)
 end)
-loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/xxx"))()
+loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/xxx"))()
