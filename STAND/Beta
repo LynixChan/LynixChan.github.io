@@ -2613,7 +2613,7 @@ rs.Stepped:connect(function()
         end
     end
 end)
-
+print(game.Players.LocalPlayer.Character:FindFirstChild('BodyEffects'):FindFirstChild('Reload').Value)
 rs.Stepped:connect(function()
     if GunKnock == true and KO(TARGET).Value == false then
         StopHoverAnim = true
@@ -2622,16 +2622,10 @@ rs.Stepped:connect(function()
         Strafe = true
         for _,v in ipairs(STAND.Character:WaitForChild("Humanoid"):GetPlayingAnimationTracks()) do v:Stop() end
         game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",false)
-        if STAND.Character:FindFirstChildWhichIsA("Tool") then
-            if STAND.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo") then
-                if STAND.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo").Value <= 0 then
-                    game:GetService("ReplicatedStorage").MainEvent:FireServer("Reload",STAND.Character:FindFirstChildWhichIsA("Tool")) 
-                end
-            end
-        end
+        Reload()
         STAND.Character:FindFirstChild('[LMG]'):Activate()
     elseif GunKnock == true and KO(TARGET).Value == true then
-        STAND.Character:FindFirstChild('[LMG]'):Deactivate()
+        STAND.Character:FindFirstChild("[LMG]").Parent = STAND.Backpack
         StopHoverAnim = false
         GunKnock = false
         Strafe = false
@@ -2649,19 +2643,13 @@ rs.Stepped:connect(function()
         Strafe = true
         for _,v in ipairs(STAND.Character:WaitForChild("Humanoid"):GetPlayingAnimationTracks()) do v:Stop() end
         game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",false)
-        if STAND.Character:FindFirstChildWhichIsA("Tool") then
-            if STAND.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo") then
-                if STAND.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo").Value <= 0 then
-                    game:GetService("ReplicatedStorage").MainEvent:FireServer("Reload",STAND.Character:FindFirstChildWhichIsA("Tool")) 
-                end
-            end
-        end
+        Reload()
         STAND.Character:FindFirstChild('[LMG]'):Activate()
     elseif GunStomp == true and KO(TARGET).Value == true then
         getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
         Strafe = false
         game.ReplicatedStorage.MainEvent:FireServer("Stomp")
-        STAND.Character:FindFirstChild('[LMG]'):Deactivate()
+        STAND.Character:FindFirstChild("[LMG]").Parent = STAND.Backpack
         if Dead(TARGET).Value == true then
             StopHoverAnim = false
             GunStomp = false
