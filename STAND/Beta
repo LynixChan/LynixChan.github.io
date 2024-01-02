@@ -1,4 +1,3 @@
---there alot messy stuff here so dont ask why there so many unnecessary line
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-547.482239, 173.374954, -0.0784880966)
 wait(1)
 StandOwner = getgenv().LynixSettings.Owner
@@ -27,10 +26,8 @@ Bind = getgenv().LynixSettings.AntiStomp
 Fpscap = getgenv().LynixSettings.FPSCAP
 lowgraphics = getgenv().LynixSettings.LowGraphics
 Alt = getgenv().LynixSettings.Alt
-Lynix = 'Lynix'
-Ticxyy = 'Ticxyy'
-getgenv().__ = Lynix
-getgenv().___ = Ticxyy
+getgenv().__ = 'Lynix'
+getgenv().___ = 'Ticxyy'
 local NotifyLibrary = loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/NotificationLibrary"))()
 getgenv().ScriptName = 'Lynix Stand Beta Ofc'
 local ScriptName = getgenv().ScriptName
