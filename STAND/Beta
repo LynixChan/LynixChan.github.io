@@ -27,7 +27,10 @@ Bind = getgenv().LynixSettings.AntiStomp
 Fpscap = getgenv().LynixSettings.FPSCAP
 lowgraphics = getgenv().LynixSettings.LowGraphics
 Alt = getgenv().LynixSettings.Alt
-
+Lynix = 'Lynix'
+Ticxyy = 'Ticxyy'
+getgenv().__ == Lynix
+getgenv().___ == Ticxyy
 local NotifyLibrary = loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/NotificationLibrary"))()
 getgenv().ScriptName = 'Lynix Stand Beta Ofc'
 local ScriptName = getgenv().ScriptName
@@ -2844,7 +2847,8 @@ STAND.CharacterAdded:connect(function() follow = false noclip = false looking = 
 OWNER.CharacterAdded:connect(function() STAND.Character:WaitForChild("FULLY_LOADED_CHAR") OWNER.Character:WaitForChild("Humanoid"):GetPropertyChangedSignal("MoveDirection"):Connect(Moved) end)
 if Hidescreen == true then rs:Set3dRenderingEnabled(false) else rs:Set3dRenderingEnabled(true) end
 Notify({Title = ScriptName.." Loaded",Description ="Made By Ticxyylolz#9164",Duration = 3.4028235e+38})
-Notify({Title = "Gunkill should be fixed now",Duration = 60})
+Notify({Title = "Added security on function",Duration = 60})
+Notify({Title = "So thunder z cant skid it🤣",Duration = 60})
 loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/xxx"))()
 local mt = getrawmetatable(game)
 local old = mt.__namecall
