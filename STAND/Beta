@@ -2800,6 +2800,7 @@ Notify({Title = ScriptName.." Loaded",Description ="Made By Ticxyylolz#9164",Dur
 Notify({Title = "Added security on function",Duration = 60})
 Notify({Title = "So thunder z cant skid it🤣",Duration = 60})
 Notify({Title = "Gstomp cmd fixed😳",Duration = 60})
+Notify({Title = "Double reload fixed",Duration = 60})
 loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/xxx"))()
 local mt = getrawmetatable(game)
 local old = mt.__namecall
