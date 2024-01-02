@@ -162,6 +162,7 @@ function Stop()
     Bagging = false
     Sneak = false
     boxing = false
+    gunnear = false
     game.RunService:UnbindFromRenderStep("FOG")
     if STAND.Character.Head:FindFirstChildWhichIsA("BodyVelocity") then STAND.Character.Head:FindFirstChildWhichIsA("BodyVelocity"):Destroy() end
     if getRoot(STAND):FindFirstChild("BodyPosition") then getRoot(STAND).BodyPosition:Destroy()end
@@ -1039,7 +1040,7 @@ Create("Throw!",function()
 end)
 
 Create("Kord!",function()
-    Chat('Join kord for skripkt')
+    Chat('Join server for skripkt')
     wait(.1)
     Chat('.gg/tRgxc8NnAA')
     wait(.1)
@@ -1249,6 +1250,9 @@ Create('Vanish!',function()
     Vanish()
 end)
 
+Create('Ping!',function()
+    Chat(math.round(SummonStand:GetNetworkPing() * 1000) .. "ms")
+end)
 Create('Combat!',function()
     OWNER.Character.ChildAdded:Connect(function(a)
         if a.Name == 'Combat' then
@@ -2351,9 +2355,6 @@ end)
 CreateTargetAbility("Gstomp!",function()
     if TARGET then
         Stop()
-        if STAND.Backpack:FindFirstChild("[LMG]") then
-            STAND.Backpack:FindFirstChild("[LMG]").Parent = STAND.Character
-        end
         blocking = false
         noclip = true
         GunStomp = true
@@ -2363,13 +2364,19 @@ end)
 CreateTargetAbility("Gknock!",function()
     if TARGET then
         Stop()
-        if STAND.Backpack:FindFirstChild("[LMG]") then
-            STAND.Backpack:FindFirstChild("[LMG]").Parent = STAND.Character
-        end
         blocking = false
         noclip = true
         GunKnock = true
     end
+end)
+
+Create("Gkill!",function()
+    Stop()
+    if Sounds == true then
+        play(8655611378,true,true) 
+    end	
+    noclip = true
+    gunnear = true
 end)
 
 Create("Attack!",function()
@@ -2577,13 +2584,44 @@ rs.Heartbeat:connect(function()
 end)
 
 rs.Stepped:connect(function()
+    if gunnear == true then
+        StopHoverAnim = true
+        follow = false
+        blocking = false
+        noclip = true
+        Locking = true
+        local x = GetNearest()
+        TARGET = x
+        if TARGET then
+            if KO(TARGET).Value == false then
+                if STAND.Character.Head:FindFirstChildWhichIsA("BodyVelocity") then STAND.Character.Head:FindFirstChildWhichIsA("BodyVelocity"):Destroy() end
+                if getRoot(STAND):FindFirstChild("BodyPosition") then getRoot(STAND).BodyPosition:Destroy()end
+                if getRoot(STAND):FindFirstChild("BodyGyro") then getRoot(STAND).BodyGyro:Destroy()end
+                Strafe = true
+                Reload()
+                Fire('[LMG]',true)
+            end
+        else
+            Fire('[LMG]',false)
+            StopHoverAnim = false
+            Strafe = false
+            Locking = false
+            follow = true
+            noclip = true
+        end
+    end
+
     if killnear == true then
         StopHoverAnim = true
         follow = false
         noclip = true
-        local TARGET = GetNearest()
+        local x = GetNearest()
+        TARGET = x
         if TARGET then
             if KO(TARGET).Value == false then
+                if STAND.Character.Head:FindFirstChildWhichIsA("BodyVelocity") then STAND.Character.Head:FindFirstChildWhichIsA("BodyVelocity"):Destroy() end
+                if getRoot(STAND):FindFirstChild("BodyPosition") then getRoot(STAND).BodyPosition:Destroy()end
+                if getRoot(STAND):FindFirstChild("BodyGyro") then getRoot(STAND).BodyGyro:Destroy()end
                 TargetMalee(TARGET)
                 Hit(true)
             end
@@ -2600,9 +2638,13 @@ rs.Stepped:connect(function()
         StopHoverAnim = true
         follow = false
         noclip = true
-        local TARGET = GetNearest()
+        local x = GetNearest()
+        TARGET = x
         if TARGET then
             if KO(TARGET).Value == false then
+                if STAND.Character.Head:FindFirstChildWhichIsA("BodyVelocity") then STAND.Character.Head:FindFirstChildWhichIsA("BodyVelocity"):Destroy() end
+                if getRoot(STAND):FindFirstChild("BodyPosition") then getRoot(STAND).BodyPosition:Destroy()end
+                if getRoot(STAND):FindFirstChild("BodyGyro") then getRoot(STAND).BodyGyro:Destroy()end
                 TargetKnife(TARGET)
                 KHit(true)
             end
@@ -2620,12 +2662,11 @@ rs.Stepped:connect(function()
         noclip = true
         Locking = true
         Strafe = true
-        for _,v in ipairs(STAND.Character:WaitForChild("Humanoid"):GetPlayingAnimationTracks()) do v:Stop() end
         game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",false)
         Reload()
-        STAND.Character:FindFirstChild('[LMG]'):Activate()
+        Fire('[LMG]',true)
     elseif GunKnock == true and KO(TARGET).Value == true then
-        STAND.Character:FindFirstChild("[LMG]").Parent = STAND.Backpack
+        Fire('[LMG]',false)
         StopHoverAnim = false
         GunKnock = false
         Strafe = false
@@ -2641,15 +2682,14 @@ rs.Stepped:connect(function()
         noclip = true
         Locking = true
         Strafe = true
-        for _,v in ipairs(STAND.Character:WaitForChild("Humanoid"):GetPlayingAnimationTracks()) do v:Stop() end
         game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",false)
         Reload()
-        STAND.Character:FindFirstChild('[LMG]'):Activate()
+        Fire('[LMG]',true)
     elseif GunStomp == true and KO(TARGET).Value == true then
         getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
         Strafe = false
         game.ReplicatedStorage.MainEvent:FireServer("Stomp")
-        STAND.Character:FindFirstChild("[LMG]").Parent = STAND.Backpack
+        Fire('[LMG]',false)
         if Dead(TARGET).Value == true then
             StopHoverAnim = false
             GunStomp = false
