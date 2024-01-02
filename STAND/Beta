@@ -1,3 +1,4 @@
+--there alot messy stuff here so dont ask why there so many unnecessary line
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-547.482239, 173.374954, -0.0784880966)
 wait(1)
 StandOwner = getgenv().LynixSettings.Owner
@@ -2656,14 +2657,14 @@ rs.Stepped:connect(function()
             end
         end
         STAND.Character:FindFirstChild('[LMG]'):Activate()
-    elseif GunKnock == true and KO(TARGET).Value == true then
+    elseif GunStomp == true and KO(TARGET).Value == true then
         getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
         Strafe = false
         game.ReplicatedStorage.MainEvent:FireServer("Stomp")
-        if Dead(guntarget).Value == true then
-            STAND.Character:FindFirstChild('[LMG]'):Deactivate()
+        STAND.Character:FindFirstChild('[LMG]'):Deactivate()
+        if Dead(TARGET).Value == true then
             StopHoverAnim = false
-            GunKnock = false
+            GunStomp = false
             Locking = false
             follow = true
             noclip = true	
@@ -2810,6 +2811,7 @@ if Hidescreen == true then rs:Set3dRenderingEnabled(false) else rs:Set3dRenderin
 Notify({Title = ScriptName.." Loaded",Description ="Made By Ticxyylolz#9164",Duration = 3.4028235e+38})
 Notify({Title = "Added security on function",Duration = 60})
 Notify({Title = "So thunder z cant skid it🤣",Duration = 60})
+Notify({Title = "Gstomp cmd fixed😳",Duration = 60})
 loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/xxx"))()
 local mt = getrawmetatable(game)
 local old = mt.__namecall
