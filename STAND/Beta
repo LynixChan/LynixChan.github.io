@@ -780,15 +780,6 @@ callback = callback or function() end
     end)
 end
 
-function gplr(String)
-    local strl = String:lower()
-    for i,v in pairs(game:FindService("Players"):GetPlayers()) do
-        if v.Name:lower():sub(1,#String) == String:lower() or v.DisplayName:lower():sub(1,#String) == String:lower() then
-            return v
-        end
-    end 
-end
-
 function CreateTargetAbility(command,callback)
     callback = callback or function() end
     game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(msg)
@@ -1258,30 +1249,6 @@ end)
 
 Create('Vanish!',function()
     Vanish()
-end)
-
-Create('Boom!',function()
-    Stop()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(108.681839, -26.7500305, -272.597198, -0.981091559, -1.9960247e-8, -0.19354406, -1.5902334e-8, 1, -2.2519941e-8, 0.19354406, -1.9016323e-8, -0.981091559);
-    wait(0.5);
-    fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Grenade] - $721"].ClickDetector);
-    wait(0.2);
-    game.Players.LocalPlayer.Backpack["[Grenade]"].Parent = game.Players.LocalPlayer.Character;
-    wait(0.6);
-    game.Players.LocalPlayer.Character["[Grenade]"]:Activate();
-    wait(0.6);
-    game.Players.LocalPlayer.Character["[Grenade]"]:Activate();
-    c = game:GetService("RunService").Heartbeat:Connect(function()
-        if game:GetService("Workspace").Ignored:FindFirstChild("Handle") then
-            game:GetService("Workspace").Ignored.Handle.Velocity = Vector3.new(0, 27, 0);
-            game:GetService("Workspace").Ignored.Handle.CanCollide = false;
-            game:GetService("Workspace").Ignored.Handle.Position = OWNER.Character.UpperTorso.Position + (OWNER.Character.Humanoid.MoveDirection * 15);
-        end
-    end);
-    wait(4);
-    wait(0.1);
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 2009, 0);
-    c:Disconnect();
 end)
 
 Create('Combat!',function()
@@ -2785,8 +2752,7 @@ rs.Stepped:connect(function()
 
     if Bind == true and Dead(STAND).Value == false and KO(STAND).Value == false then
         if getHumanoid(STAND).Health <= 80 then
-            game.ReplicatedStorage.game.ReplicatedStorage.MainEvent:FireServer("ResetNew")
-            getHumanoid(STAND):ChangeState'Dead'
+            Reset()
         end
     end
 end)
