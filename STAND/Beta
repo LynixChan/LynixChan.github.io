@@ -2659,8 +2659,7 @@ rs.Stepped:connect(function()
             end
         end
         STAND.Character:FindFirstChild('[LMG]'):Activate()
-    else
-        if GunKnock == true and KO(TARGET).Value == true then
+    elseif GunKnock == true and KO(TARGET).Value == true then
             getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
             Strafe = false
             game.ReplicatedStorage.MainEvent:FireServer("Stomp")
