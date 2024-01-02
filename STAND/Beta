@@ -29,8 +29,8 @@ lowgraphics = getgenv().LynixSettings.LowGraphics
 Alt = getgenv().LynixSettings.Alt
 Lynix = 'Lynix'
 Ticxyy = 'Ticxyy'
-getgenv().__ == Lynix
-getgenv().___ == Ticxyy
+getgenv().__ = Lynix
+getgenv().___ = Ticxyy
 local NotifyLibrary = loadstring(game:HttpGet("https://lynixchan.github.io/Stuff/NotificationLibrary"))()
 getgenv().ScriptName = 'Lynix Stand Beta Ofc'
 local ScriptName = getgenv().ScriptName
@@ -2660,17 +2660,16 @@ rs.Stepped:connect(function()
         end
         STAND.Character:FindFirstChild('[LMG]'):Activate()
     elseif GunKnock == true and KO(TARGET).Value == true then
-            getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
-            Strafe = false
-            game.ReplicatedStorage.MainEvent:FireServer("Stomp")
-            if Dead(guntarget).Value == true then
-                STAND.Character:FindFirstChild('[LMG]'):Deactivate()
-                StopHoverAnim = false
-                GunKnock = false
-                Locking = false
-                follow = true
-                noclip = true	
-            end
+        getRoot(STAND).CFrame = CFrame.new(getTorso(TARGET).Position)*CFrame.new(0,5,0)
+        Strafe = false
+        game.ReplicatedStorage.MainEvent:FireServer("Stomp")
+        if Dead(guntarget).Value == true then
+            STAND.Character:FindFirstChild('[LMG]'):Deactivate()
+            StopHoverAnim = false
+            GunKnock = false
+            Locking = false
+            follow = true
+            noclip = true	
         end
     end
 end)
